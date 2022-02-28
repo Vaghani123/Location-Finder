@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>
+            Session 30
+        </title>
+        <style>
+            body{
+                background-color: red;
+                color: whitesmoke;
+                text-align: center;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+
+        </style>
+    </head>
+    <body>
+    <h1>Geolocation</h1>
+    <h2>28/02/22</h2>
+    <p id="displayLocation"></p>
+    <input type="button" value="Get Location" onclick="geolocation()">
+    </body>
+    <script>
+        var paragraph = document.getElementById("displayLocation")
+
+        function geolocation(){
+        if(navigator.geolocation)
+        {
+            navigator.geolocation.getCurrentPosition(showPosition)
+        }
+        else{
+            paragraph.innerText="Geolocation is not available"
+        }
+        }
+
+        function showPosition(position){
+            paragraph.innerText="Latitude = "+position.coords.latitude+
+            "Longitude = "+position.coords.longitude;
+        }
+    </script>
+</html>
